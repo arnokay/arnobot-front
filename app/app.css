@@ -5,7 +5,10 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+  --color-twitch: oklch(0.4676 0.1544 296.01);
+  --color-youtube: oklch(0.628 0.2577 29.23);
+  --color-kick: oklch(0.804 0.27347 142.5092);
 }
 
 html,
@@ -15,6 +18,7 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+  text-transform: lowercase;
 }
 
 :root {

@@ -7,7 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card"
-import { IconBrandGoogle, IconBrandKick, IconBrandTwitch } from "@tabler/icons-react"
+import { IconBrandYoutube, IconBrandKick, IconBrandTwitch } from "@tabler/icons-react"
+import { platformColors } from "~/lib/colors"
 
 export function LoginForm({
   className,
@@ -27,15 +28,15 @@ export function LoginForm({
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
                 <Button variant="outline" className="w-full">
-                  <IconBrandGoogle />
-                  Login with Google
-                </Button>
-                <Button variant="outline" className="w-full">
-                  <IconBrandTwitch color="#6441a5" />
+                  <IconBrandTwitch className="stroke-twitch" />
                   Login with Twitch
                 </Button>
-                <Button variant="outline" className="w-full">
-                  <IconBrandKick color="#00e701" />
+                <Button disabled variant="outline" className="w-full">
+                  <IconBrandYoutube className="stroke-youtube" />
+                  Login with Youtube
+                </Button>
+                <Button disabled variant="outline" className="w-full">
+                  <IconBrandKick className="stroke-kick" />
                   Login with Kick
                 </Button>
               </div>
