@@ -4,7 +4,7 @@ export default [
   // index("routes/landing.tsx"),
 
   route("auth", "routes/auth/auth.tsx"),
-  // route("auth/callback", "routes/auth/callback.tsx"),
+  route("auth/callback", "routes/auth/callback.tsx"),
   
   ...prefix("dashboard", [
     layout("guards/auth.guard.tsx", [
