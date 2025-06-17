@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "~/components/ui/card"
 import { IconBrandYoutube, IconBrandKick, IconBrandTwitch } from "@tabler/icons-react"
-import { platformColors } from "~/lib/colors"
 
 export function LoginForm({
   className,
