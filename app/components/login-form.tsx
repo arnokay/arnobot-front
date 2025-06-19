@@ -29,16 +29,21 @@ export function LoginForm({
               <a href={authService.getProviderAuthURL("twitch")} target='_self' rel='noopener noreferrer'>
                 <Button variant="outline" className="w-full">
                   <IconBrandTwitch className="stroke-twitch" />
-                  Login with Twitch
+                  login with twitch
                 </Button>
               </a>
+              <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                <span className="bg-card text-muted-foreground relative z-10 px-2">
+                  coming soon
+                </span>
+              </div>
               <Button disabled variant="outline" className="w-full">
                 <IconBrandYoutube className="stroke-youtube" />
-                Login with Youtube
+                login with youtube
               </Button>
               <Button disabled variant="outline" className="w-full">
                 <IconBrandKick className="stroke-kick" />
-                Login with Kick
+                login with kick
               </Button>
             </div>
           </div>
