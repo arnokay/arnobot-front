@@ -1,11 +1,18 @@
-export default {
+
+enum Platform {
+  Kick = "kick",
+  Twitch = "twitch",
+}
+
+type config = {
   app: {
-    sessionTokenKey: "s",
+    name: string,
+    sessionTokenKey: string,
   },
-  services: {
-    authURL: getEnvOrThrow("VITE_APP_AUTH_API_URL"),
-    twitchURL: getEnvOrThrow("VITE_APP_TWITCH_API_URL"),
-    coreURL: getEnvOrThrow("VITE_APP_CORE_API_URL"),
+  platforms: Platform[],
+  api: {
+    main: string,
+    auth: string,
   },
 };
 
@@ -17,4 +24,16 @@ function getEnvOrThrow(name: string): string {
 
   return env;
 }
+
+export default {
+  app: {
+    name: "arnobot",
+    sessionTokenKey: "s",
+  },
+  platforms: [Platform.Kick, Platform.Twitch],
+  api: {
+    main: getEnvOrThrow("VITE_APP_MAIN_API_URL"),
+    auth: getEnvOrThrow("VITE_APP_AUTH_API_URL"),
+  },
+} satisfies config;
 

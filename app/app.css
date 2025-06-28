@@ -19,6 +19,7 @@ body {
     color-scheme: dark;
   }
   text-transform: lowercase;
+  font-size: 18px;
 }
 
 :root {

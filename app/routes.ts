@@ -5,6 +5,7 @@ export default [
 
   route("auth", "routes/auth/auth.tsx"),
   route("auth/callback", "routes/auth/callback.tsx"),
+  route("/request-access", "request-access/request-access.tsx"),
   
   ...prefix("dashboard", [
     layout("guards/auth.guard.tsx", [
