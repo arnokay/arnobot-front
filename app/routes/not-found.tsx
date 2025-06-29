@@ -55,11 +55,6 @@ export default function NotFound() {
               </div>
             </CardContent>
           </Card>
-
-          {/* Fun Message */}
-          <div className="mt-8 text-muted-foreground">
-            <p className="text-sm">Lost? Don't worry, even the best streamers miss their cues sometimes! 🎮</p>
-          </div>
         </div>
       </div>
     </div>
