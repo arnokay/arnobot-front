@@ -7,6 +7,18 @@ import AppName from "~/components/app-name"
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div
+          className="absolute top-20 left-20 w-60 h-60 bg-primary/5 rounded-full blur-2xl animate-bounce"
+          style={{ animationDuration: "4s" }}
+        ></div>
+        <div
+          className="absolute -bottom-40 -right-40 w-80 h-80 bg-primary/15 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+      </div>
+
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
         <div className="text-center max-w-4xl">
           <Badge variant="secondary" className="mb-6">
