@@ -13,6 +13,7 @@ import appStylesUrl from "./app.css?url";
 import { ThemeProvider } from "./components/theme-provider";
 import { LoadingScreen } from "./components/loading-screen";
 import { getTitle } from "./lib/meta";
+import NotFound from "./routes/not-found";
 
 
 export function meta({ location }: MetaArgs) {
@@ -102,14 +103,6 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <NotFound />
   );
 }
