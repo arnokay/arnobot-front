@@ -5,12 +5,21 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  type MetaArgs,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import appStylesUrl from "./app.css?url";
 import { ThemeProvider } from "./components/theme-provider";
 import { LoadingScreen } from "./components/loading-screen";
+import { getTitle } from "./lib/meta";
+
+
+export function meta({ location }: MetaArgs) {
+  return [
+    getTitle(location.pathname),
+  ];
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -55,7 +64,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
       </head>
-      <body className="bg-muted">
+      <body className="bg-background">
         {children}
         <ScrollRestoration />
         <Scripts />

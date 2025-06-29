@@ -33,6 +33,5 @@ const createApiClient = (baseURL: string) => {
   return client;
 };
 
-export const authApi = createApiClient(config.services.authURL);
-export const twitchApi = createApiClient(config.services.twitchURL);
-export const coreApi = createApiClient(config.services.coreURL);
+export const authApi = createApiClient(config.api.auth);
+export const twitchApi = createApiClient(config.api.main);

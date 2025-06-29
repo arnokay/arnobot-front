@@ -1,8 +1,6 @@
-"use client"
-
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "~/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card"
 import { Input } from "~/components/ui/input"
@@ -10,10 +8,22 @@ import { Label } from "~/components/ui/label"
 import { Textarea } from "~/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select"
 import { IconRobot, IconArrowLeft, IconSend, IconBrandKick, IconBrandTwitch } from "@tabler/icons-react"
-import { Link } from "react-router"
+import { Link, useNavigate, useSearchParams, type ClientLoaderFunctionArgs, type MetaArgs } from "react-router"
 import config from "~/config"
+import Header from "~/header"
+
+export async function clientLoader({ request }: ClientLoaderFunctionArgs) {
+
+}
 
 export default function RequestAccessPage() {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const userId = searchParams.get('uid');
+  if (!userId) {
+    useEffect(() => { navigate('/', { replace: true }) }, [])
+    return
+  }
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     channelName: "",
@@ -59,28 +69,17 @@ export default function RequestAccessPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="min-h-screen">
+      <Header>
+        <Button variant="ghost" asChild>
           <Link to="/">
-            <div className="flex items-center gap-2">
-              <IconRobot className="h-8 w-8" />
-              <span className="text-xl font-bold">{config.app.name}</span>
-            </div>
+            <IconArrowLeft className="h-4 w-4 mr-2" />
+            Back to Home
           </Link>
-          <Button variant="ghost" asChild>
-            <Link to="/">
-              <IconArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
-          </Button>
-        </div>
-      </header>
-
+        </Button>
+      </Header>
       <div className="flex items-center justify-center p-4 py-12">
         <div className="w-full max-w-2xl">
-          {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Request Access</h1>
             <p className="text-muted-foreground">
@@ -88,7 +87,6 @@ export default function RequestAccessPage() {
             </p>
           </div>
 
-          {/* Form */}
           <Card>
             <CardHeader>
               <CardTitle>Application Form</CardTitle>
