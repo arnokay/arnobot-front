@@ -9,12 +9,12 @@ export default [
   route("/commands", "routes/commands.tsx"),
 
   ...prefix("dashboard", [
-    layout("guards/auth.guard.tsx", [
-      index("routes/home.tsx")
+    // layout("guards/auth.guard.tsx", [
+      index("routes/dashboard/index.tsx")
       // layout("routes/dashboard/layout.tsx", [
       //   index("routes/dashboard/dashboard.tsx"),
       //   route("integrations", "routes/dashboard/integrations.tsx"),
       // ])
-    ])
+    // ])
   ])
 ] satisfies RouteConfig;

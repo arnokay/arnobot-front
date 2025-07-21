@@ -3,8 +3,17 @@ import { Badge } from "~/components/ui/badge"
 import { IconArrowRight, IconBrandTwitch, IconBrandKick } from "@tabler/icons-react"
 import { Link } from "react-router"
 import AppName from "~/components/app-name"
+import { useEffect, useState } from "react"
+import { getSessionToken } from "~/lib/session"
 
 export default function LandingPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const session = getSessionToken();
+    setIsLoggedIn(!!session);
+
+  }, [isLoggedIn]);
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -33,10 +42,20 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button size="lg" className="text-lg px-8 py-6" asChild>
-              <Link to="/auth">
-                Get Started
-                <IconArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              {
+                isLoggedIn ? (
+                  <Link to="/dashboard">
+                    Dashboard
+                    <IconArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                ) :
+                  (
+                    <Link to="/auth">
+                      Get Started
+                      <IconArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  )
+              }
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-transparent" asChild>
               <Link to="/commands">View Commands</Link>
